@@ -3,18 +3,20 @@
 // read data
 var data = localStorage['quiz_data'];
 if (data==undefined) {
+    console.log("Sem data.")
     
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const quiz_id = urlParams.get('id')
     
-    window.location.href = "/UserQuizMaker/view/read_quiz.html?id=" + quiz_id
+    window.location.href = "/view/read_quiz.html?id=" + quiz_id
 }
 
 data = JSON.parse(data)
 localStorage.removeItem('quiz_data');
 
 if (user_progress==undefined) {
+    console.log("Sem Progresso.")
     var user_progress = {
         "right":0,
         "wrong":0,
